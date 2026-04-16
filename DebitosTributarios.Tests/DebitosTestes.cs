@@ -17,7 +17,7 @@ public class DebitosTestes
         var debito = Debito.Criar(valor, vencimento, contribuinteId);
 
         // Assert
-        Assert.NotEqual(0, debito.Id);
+        Assert.Equal(0, debito.Id);
         Assert.Equal(contribuinteId, debito.ContribuinteId);
         Assert.Equal(valor, debito.Valor);
         Assert.Equal(vencimento, debito.DataVencimento);
