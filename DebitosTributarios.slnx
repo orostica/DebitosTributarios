@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/DebitosTributarios.Api/DebitosTributarios.Api.csproj" />
+    <Project Path="src/DebitosTributarios.Application/DebitosTributarios.Application.csproj" />
+    <Project Path="src/DebitosTributarios.Domain/DebitosTributarios.Domain.csproj" />
+    <Project Path="src/DebitosTributarios.Infrastructure/DebitosTributarios.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
+</Solution>
