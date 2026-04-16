@@ -5,5 +5,7 @@
     <Project Path="src/DebitosTributarios.Domain/DebitosTributarios.Domain.csproj" />
     <Project Path="src/DebitosTributarios.Infrastructure/DebitosTributarios.Infrastructure.csproj" />
   </Folder>
-  <Folder Name="/tests/" />
+  <Folder Name="/tests/">
+    <Project Path="DebitosTributarios.Tests/DebitosTributarios.Tests.csproj" Id="90be3f72-c9ea-49f6-8628-d829dc4f5d80" />
+  </Folder>
 </Solution>
