@@ -8,7 +8,8 @@ namespace DebitosTributarios.Domain.Interfaces
 {
     public interface IContribuinteRepository
     {
-        Task NovoContribuinte(ContribuinteNovoDto contribuinte);
-        Task<bool> ContribuinteExiste(string cpf);
+        Task NovoContribuinteAsync(ContribuinteNovoDto contribuinte);
+        Task<bool> CpfCnpjExisteAsync(string cpfCnpj);
+        Task<Contribuinte?> ObterPorIdAsync(int id);
     }
 }
