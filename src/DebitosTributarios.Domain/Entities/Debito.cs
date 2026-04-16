@@ -8,7 +8,6 @@ public sealed class Debito
     public DateTime? DataPagamento { get; private set; }
     public DateTime DataCriacao { get; private set; }
     public int ContribuinteId { get; private set; }
-    public List<Contribuinte> Contribuintes { get; private set; }
 
     private Debito() { }
 

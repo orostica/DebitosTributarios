@@ -1,4 +1,3 @@
-using DebitosTributarios.Domain.DTOs;
 using DebitosTributarios.Domain.Entities;
 using DebitosTributarios.Domain.Interfaces;
 using DebitosTributarios.Infrastructure.Contexts;
@@ -8,14 +7,17 @@ namespace DebitosTributarios.Infrastructure.Repositories;
 
 public class ContribuinteRepository(DebitosTributariosDbContext dbContext) : IContribuinteRepository
 {
-    public async Task NovoContribuinte(ContribuinteNovoDto contribuinte)
+    public async Task<Contribuinte> NovoContribuinteAsync(Contribuinte contribuinte)
     {
-        await dbContext.AddAsync(contribuinte);
+        // Adicionar a entidade nao o dto e retornar a entidade criada
+        await dbContext.Contribuintes.AddAsync(contribuinte);
         await dbContext.SaveChangesAsync();
+        return contribuinte;
     }
 
-    public async Task<bool> ContribuinteExiste(string cpf)
-    {
-        return await dbContext.Contribuintes.AnyAsync(c => c.CpfCnpj == cpf);
-    }
+    public Task<bool> CpfCnpjExisteAsync(string cpfCnpj)
+        => dbContext.Contribuintes.AnyAsync(c => c.CpfCnpj == cpfCnpj);
+
+    public Task<Contribuinte?> ObterPorIdAsync(int id)
+        => dbContext.Contribuintes.FirstOrDefaultAsync(c => c.Id == id);
 }

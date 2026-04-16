@@ -11,6 +11,9 @@ internal sealed class ContribuinteMap : IEntityTypeConfiguration<Contribuinte>
         builder.ToTable("contribuinte");
 
         builder.HasKey(t => t.Id);
+        builder.Property(t => t.Id)
+            .HasColumnName("id")
+            .ValueGeneratedOnAdd();
 
         builder.Property(t => t.Nome)
             .IsRequired()
@@ -18,12 +21,17 @@ internal sealed class ContribuinteMap : IEntityTypeConfiguration<Contribuinte>
             .HasColumnName("nome");
 
         builder.Property(t => t.CpfCnpj)
-          .IsRequired()
-          .HasMaxLength(14)
-          .HasColumnName("cpf_cnpj");
+            .IsRequired()
+            .HasMaxLength(14)
+            .HasColumnName("cpf_cnpj");
 
         builder.Property(t => t.DataCriacao)
-        .IsRequired()
-        .HasColumnName("data_criacao");
+            .IsRequired()
+            .HasColumnName("data_criacao");
+
+        // Índice para garantir que o cpf/cnpj seja unico na tabela
+        builder.HasIndex(t => t.CpfCnpj)
+            .IsUnique()
+            .HasDatabaseName("ix_contribuinte_cpf_cnpj");
     }
 }

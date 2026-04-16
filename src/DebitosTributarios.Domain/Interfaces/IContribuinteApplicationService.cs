@@ -7,7 +7,7 @@ namespace DebitosTributarios.Domain.Interfaces
 {
     public interface IContribuinteApplicationService
     {
-        Task NovoContribuinteAsync(ContribuinteNovoDto contribuinte);
+        Task<int> NovoContribuinteAsync(ContribuinteNovoDto contribuinte);
 
         Task<ContribuinteDto?> ObterContribuinteAsync(int id);
     }
